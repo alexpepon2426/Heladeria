@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 private Spinner spin;
@@ -23,6 +25,7 @@ private Button btn;
     String cadena2;
     String cadena3;
     String cadena4;
+    Fragment frag = new BlankFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +47,13 @@ private Button btn;
                 cadena1=chocolate.getText().toString();
                 cadena2=vainilla.getText().toString();
                 cadena3=fresa.getText().toString();
-                Intent intent = new Intent(MainActivity.this, Activity2.class);
+                Intent intent = new Intent(MainActivity.this, BlankFragment.class);
 
                 intent.putExtra("chocolate",cadena1);
                 intent.putExtra("vainilla",cadena2);
                 intent.putExtra("fresa",cadena3);
                 intent.putExtra("eleccion",cadena4);
-                startActivity(intent);
+                cambiarFragment();
             }
         });
 
@@ -66,11 +69,19 @@ private Button btn;
             }
         });
 
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private void cambiarFragment() {
+        Fragment ponerFragment = frag;
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, ponerFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
     }
 
 }
