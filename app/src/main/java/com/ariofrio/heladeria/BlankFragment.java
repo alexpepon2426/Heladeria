@@ -101,18 +101,25 @@ public class BlankFragment extends Fragment {
            textoSpin.setText(cadena4);
 
 
-           texto.setText("De Vainilla han pedido: " + mensaje2 + "\nde Chocolate han elegido: " + mensaje1 + "\ny de fresa: " + mensaje3 + "\nY has elegido " + mensaje4);
+           texto.setText("De Vainilla han pedido: " + mensaje2 + "\nDe Chocolate han elegido: " + mensaje1 + "\nDe fresa: " + mensaje3 + "\nY has elegido " + mensaje4);
        }
    }
 
-    private String eleccion(String palabra){
+    private String eleccion(String palabra) {
+        TextView textoSpin = getView().findViewById(R.id.tvSpin);
         String retorno;
-        if(palabra.equalsIgnoreCase("cucurucho")||palabra.equalsIgnoreCase("cucu")){
-            return retorno="V";
-        }else{
-            return retorno="U";
+        if (palabra.equalsIgnoreCase("cucurucho")) {
+            retorno = "V";
+            textoSpin.setTextColor(Color.parseColor("#804000"));//marron
+        } else if (palabra.equalsIgnoreCase("choco")) {
+            retorno = "V";
+            textoSpin.setTextColor(Color.parseColor("#5c330a"));//marron oscuro
+        } else {
+            retorno = "U";
+            textoSpin.setTextColor(Color.BLACK);
         }
 
+        return retorno;
     }
     private String helados(int num) {
         String cadena = "";
