@@ -121,4 +121,8 @@ public class BlankFragment extends Fragment {
         }
         return cadena;
     }
+
+    public void Acabar(View view) {
+        getActivity().finish();
+    }
 }
