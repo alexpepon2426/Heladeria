@@ -94,7 +94,7 @@ public class BlankFragment extends Fragment {
            texto2.setTextColor(Color.YELLOW);
 
            texto3.setText(cadena2);
-           texto3.setTextColor(Color.BLACK);
+           texto3.setTextColor(Color.parseColor("#804000"));//marron
 
            texto4.setText(cadena3);
            texto4.setTextColor(Color.RED);
