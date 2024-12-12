@@ -34,8 +34,10 @@ public class BlankFragment extends Fragment {
 
 
     // TODO: Rename and change types and number of parameters
+    //Toma como parametro las cadenas que le hemos pasado al fragment en el MAIN
     public static BlankFragment newInstance(String chocolate, String vainilla, String fresa, String eleccion) {
         BlankFragment fragment = new BlankFragment();
+        //uso Bundle para empaquetar los valores y los asociamos al fragment
         Bundle args = new Bundle();
         args.putString("chocolate", chocolate);
         args.putString("vainilla", vainilla);
@@ -54,7 +56,7 @@ public class BlankFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    //Metemos el contenido en el fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,7 +76,7 @@ public class BlankFragment extends Fragment {
        texto4 = view.findViewById(R.id.tv6);
        textoSpin = view.findViewById(R.id.tvSpin);
        int a,b,c;
-
+       //recuperas los argumentos usando getArguments
        Bundle args = getArguments();
        if (args != null) {
            String mensaje1 = args.getString("chocolate", "0");
@@ -84,9 +86,9 @@ public class BlankFragment extends Fragment {
            a=Integer.parseInt(mensaje2);
            b=Integer.parseInt(mensaje1);
            c=Integer.parseInt(mensaje3);
-           String cadena1 = vainilla(a);
-           String cadena2 = chocolate(b);
-           String cadena3 = fresa(c);
+           String cadena1 = helados(a);
+           String cadena2 = helados(b);
+           String cadena3 = helados(c);
            String cadena4 = eleccion(mensaje4);
            texto2.setText(cadena1);
            texto2.setTextColor(Color.YELLOW);
@@ -99,10 +101,7 @@ public class BlankFragment extends Fragment {
            textoSpin.setText(cadena4);
 
 
-           texto.setText("De chocolate han pedido: " + mensaje1 +
-                   " de vainilla han elegido: " + mensaje2 +
-                   " y de fresa: " + mensaje3 +
-                   " Y has elegido " + mensaje4);
+           texto.setText("De Vainilla han pedido: " + mensaje2 + "\nde Chocolate han elegido: " + mensaje1 + "\ny de fresa: " + mensaje3 + "\nY has elegido " + mensaje4);
        }
    }
 
@@ -115,25 +114,11 @@ public class BlankFragment extends Fragment {
         }
 
     }
-    private String vainilla(int num){
-        String cadenaO ="";
-        for(int i=0;i<num;i++){
-            cadenaO+="O";
+    private String helados(int num) {
+        String cadena = "";
+        for (int i = 0; i < num; i++) {
+            cadena += "O";
         }
-        return cadenaO;
-    }
-    private String chocolate(int num){
-        String cadenaC ="";
-        for(int  i=0;i<num;i++){
-            cadenaC+="O";
-        }
-        return cadenaC;
-    }
-    private String fresa(int num){
-        String cadenaC ="";
-        for(int  i=0;i<num;i++){
-            cadenaC+="O";
-        }
-        return cadenaC;
+        return cadena;
     }
 }
