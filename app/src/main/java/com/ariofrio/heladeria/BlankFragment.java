@@ -99,22 +99,27 @@ public class BlankFragment extends Fragment {
            textoSpin.setText(cadena4);
 
 
-           texto.setText("De chocolate han pedido: " + mensaje1 +
-                   " de vainilla han elegido: " + mensaje2 +
-                   " y de fresa: " + mensaje3 +
-                   " Y has elegido " + mensaje4);
+           texto.setText("De chocolate han pedido: " + mensaje1 + " de vainilla han elegido: " + mensaje2 + " y de fresa: " + mensaje3 + " Y has elegido " + mensaje4);
        }
    }
 
-    private String eleccion(String palabra){
+    private String eleccion(String palabra) {
+        TextView textoSpin = getView().findViewById(R.id.tvSpin);
         String retorno;
-        if(palabra.equalsIgnoreCase("cucurucho")||palabra.equalsIgnoreCase("cucu")){
-            return retorno="V";
-        }else{
-            return retorno="U";
+        if (palabra.equalsIgnoreCase("cucurucho")) {
+            retorno = "V";
+            textoSpin.setTextColor(Color.parseColor("#804000"));//marron
+        } else if (palabra.equalsIgnoreCase("choco")) {
+            retorno = "V";
+            textoSpin.setTextColor(Color.parseColor("#5c330a"));//marron oscuro
+        } else {
+            retorno = "U";
+            textoSpin.setTextColor(Color.BLACK);
         }
 
+        return retorno;
     }
+
     private String vainilla(int num){
         String cadenaO ="";
         for(int i=0;i<num;i++){

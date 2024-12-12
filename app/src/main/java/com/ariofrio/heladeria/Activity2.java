@@ -54,15 +54,22 @@ private TextView texto,texto2,texto3,texto4,textoSpin;
             return insets;
         });
     }
-    private String eleccion(String palabra){
+    private String eleccion(String palabra) {
         String retorno;
-        if(palabra.equalsIgnoreCase("cucurucho")||palabra.equalsIgnoreCase("cucu")){
-            return retorno="V";
-        }else{
-            return retorno="U";
+        if (palabra.equalsIgnoreCase("cucurucho")) {
+            retorno = "V";
+            textoSpin.setTextColor(Color.parseColor("#A52A2A"));
+        } else if (palabra.equalsIgnoreCase("choco")) {
+            retorno = "V";
+            textoSpin.setTextColor(Color.parseColor("#5D4037"));
+        } else {
+            retorno = "U";
+            textoSpin.setTextColor(Color.BLACK);
         }
 
+        return retorno;
     }
+
     private String vainilla(int num){
         String cadenaO ="";
         for(int i=0;i<num;i++){
