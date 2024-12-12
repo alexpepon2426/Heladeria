@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "263052080093",
+    "project_id": "fragments-32132",
+    "storage_bucket": "fragments-32132.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263052080093:android:568f8580f1bc01e749fc34",
+        "android_client_info": {
+          "package_name": "com.ariofrio.heladeria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAc9WH2qRzDaSRHtc2pKSDjQ-TttKMdvWE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

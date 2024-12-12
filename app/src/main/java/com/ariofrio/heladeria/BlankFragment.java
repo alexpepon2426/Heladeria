@@ -32,23 +32,19 @@ public class BlankFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
-    public static BlankFragment newInstance(String param1, String param2) {
+    public static BlankFragment newInstance(String chocolate, String vainilla, String fresa, String eleccion) {
         BlankFragment fragment = new BlankFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("chocolate", chocolate);
+        args.putString("vainilla", vainilla);
+        args.putString("fresa", fresa);
+        args.putString("eleccion", eleccion);
         fragment.setArguments(args);
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,40 +61,33 @@ public class BlankFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_blank, container, false);
     }
-    //aqui ir haciendo la lógica
-    public void onViewCreated(@NonNull View view, Bundle saveInstanceState){
-        TextView texto,texto2,texto3,texto4,textoSpin;
-        int a,b,c;
-        texto=view.findViewById(R.id.tv);
-        texto2=view.findViewById(R.id.tv4);
-        texto3=view.findViewById(R.id.tv5);
-        texto4=view.findViewById(R.id.tv6);
-        textoSpin=view.findViewById(R.id.tvSpin);
 
-        Intent intent = getIntent();
-        String mensaje1 = intent.getStringExtra("chocolate");
-        String mensaje2 = intent.getStringExtra("vainilla");
-        String mensaje3 = intent.getStringExtra("fresa");
-        String mensaje4 = intent.getStringExtra("eleccion");
-        a=Integer.parseInt(mensaje2);
-        b=Integer.parseInt(mensaje1);
-        c=Integer.parseInt(mensaje3);
-        String cadena1 = vainilla(a);
-        String cadena2 = chocolate(b);
-        String cadena3 = fresa(c);
-        String cadena4 = eleccion(mensaje4);
-        texto2.setText(cadena1);
-        texto2.setTextColor(Color.YELLOW);
+   //aqui ir haciendo la lógica
+   @Override
+   public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
+       super.onViewCreated(view, saveInstanceState);
 
-        texto3.setText(cadena2);
-        texto3.setTextColor(Color.BLACK);
+       TextView texto, texto2, texto3, texto4, textoSpin;
+       texto = view.findViewById(R.id.tv);
+       texto2 = view.findViewById(R.id.tv4);
+       texto3 = view.findViewById(R.id.tv5);
+       texto4 = view.findViewById(R.id.tv6);
+       textoSpin = view.findViewById(R.id.tvSpin);
 
-        texto4.setText(cadena3);
-        texto4.setTextColor(Color.RED);
+       Bundle args = getArguments();
+       if (args != null) {
+           String mensaje1 = args.getString("chocolate", "0");
+           String mensaje2 = args.getString("vainilla", "0");
+           String mensaje3 = args.getString("fresa", "0");
+           String mensaje4 = args.getString("eleccion", "");
 
-        textoSpin.setText(cadena4);
-        texto.setText("De chocolate han pedido: "+mensaje1+" de vainilla han elegido: "+mensaje2+" y de fresa: "+mensaje3+" Y has elegido "+mensaje4);
-    }
+           texto.setText("De chocolate han pedido: " + mensaje1 +
+                   " de vainilla han elegido: " + mensaje2 +
+                   " y de fresa: " + mensaje3 +
+                   " Y has elegido " + mensaje4);
+       }
+   }
+
     private String eleccion(String palabra){
         String retorno;
         if(palabra.equalsIgnoreCase("cucurucho")||palabra.equalsIgnoreCase("cucu")){

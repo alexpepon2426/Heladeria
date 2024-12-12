@@ -44,16 +44,16 @@ private Button btn;
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cadena1=chocolate.getText().toString();
-                cadena2=vainilla.getText().toString();
-                cadena3=fresa.getText().toString();
-                Intent intent = new Intent(MainActivity.this, BlankFragment.class);
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        cadena1 = chocolate.getText().toString();
+                        cadena2 = vainilla.getText().toString();
+                        cadena3 = fresa.getText().toString();
+                        cambiarFragment();
+                    }
+                });
 
-                intent.putExtra("chocolate",cadena1);
-                intent.putExtra("vainilla",cadena2);
-                intent.putExtra("fresa",cadena3);
-                intent.putExtra("eleccion",cadena4);
-                cambiarFragment();
             }
         });
 
@@ -78,10 +78,12 @@ private Button btn;
     }
 
     private void cambiarFragment() {
-        Fragment ponerFragment = frag;
+        BlankFragment ponerFragment = BlankFragment.newInstance(cadena1, cadena2, cadena3, cadena4);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame, ponerFragment)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame, ponerFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .commit();
     }
 
 }
