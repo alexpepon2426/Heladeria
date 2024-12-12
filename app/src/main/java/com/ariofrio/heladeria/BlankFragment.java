@@ -73,6 +73,7 @@ public class BlankFragment extends Fragment {
        texto3 = view.findViewById(R.id.tv5);
        texto4 = view.findViewById(R.id.tv6);
        textoSpin = view.findViewById(R.id.tvSpin);
+       int a,b,c;
 
        Bundle args = getArguments();
        if (args != null) {
@@ -80,6 +81,23 @@ public class BlankFragment extends Fragment {
            String mensaje2 = args.getString("vainilla", "0");
            String mensaje3 = args.getString("fresa", "0");
            String mensaje4 = args.getString("eleccion", "");
+           a=Integer.parseInt(mensaje2);
+           b=Integer.parseInt(mensaje1);
+           c=Integer.parseInt(mensaje3);
+           String cadena1 = vainilla(a);
+           String cadena2 = chocolate(b);
+           String cadena3 = fresa(c);
+           String cadena4 = eleccion(mensaje4);
+           texto2.setText(cadena1);
+           texto2.setTextColor(Color.YELLOW);
+
+           texto3.setText(cadena2);
+           texto3.setTextColor(Color.BLACK);
+
+           texto4.setText(cadena3);
+           texto4.setTextColor(Color.RED);
+           textoSpin.setText(cadena4);
+
 
            texto.setText("De chocolate han pedido: " + mensaje1 +
                    " de vainilla han elegido: " + mensaje2 +
