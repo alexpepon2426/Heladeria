@@ -8,56 +8,61 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@drawable/fragment_background">
+
         <TextView
             android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Texto principal"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/tv4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            app:layout_constraintBottom_toTopOf="@+id/tv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Vainilla"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/tv5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv4" />
+            android:text="Chocolate"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/tv6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv5" />
+            android:text="Fresa"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/tvSpin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv6" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="Elección"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acabar"
+            android:onClick="Acabar"
+            />
+    </LinearLayout>
 
 </FrameLayout>
