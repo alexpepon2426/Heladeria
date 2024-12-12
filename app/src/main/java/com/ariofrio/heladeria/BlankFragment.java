@@ -66,48 +66,38 @@ public class BlankFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_blank, container, false);
     }
     //aqui ir haciendo la lógica
-    @Override
-    public void onViewCreated(@NonNull View view, Bundle saveInstanceState) {
-        super.onViewCreated(view, saveInstanceState);
+    public void onViewCreated(@NonNull View view, Bundle saveInstanceState){
+        TextView texto,texto2,texto3,texto4,textoSpin;
+        int a,b,c;
+        texto=view.findViewById(R.id.tv);
+        texto2=view.findViewById(R.id.tv4);
+        texto3=view.findViewById(R.id.tv5);
+        texto4=view.findViewById(R.id.tv6);
+        textoSpin=view.findViewById(R.id.tvSpin);
 
-        TextView texto, texto2, texto3, texto4, textoSpin;
-        int a, b, c;
+        Intent intent = getIntent();
+        String mensaje1 = intent.getStringExtra("chocolate");
+        String mensaje2 = intent.getStringExtra("vainilla");
+        String mensaje3 = intent.getStringExtra("fresa");
+        String mensaje4 = intent.getStringExtra("eleccion");
+        a=Integer.parseInt(mensaje2);
+        b=Integer.parseInt(mensaje1);
+        c=Integer.parseInt(mensaje3);
+        String cadena1 = vainilla(a);
+        String cadena2 = chocolate(b);
+        String cadena3 = fresa(c);
+        String cadena4 = eleccion(mensaje4);
+        texto2.setText(cadena1);
+        texto2.setTextColor(Color.YELLOW);
 
-        texto = view.findViewById(R.id.tv);
-        texto2 = view.findViewById(R.id.tv4);
-        texto3 = view.findViewById(R.id.tv5);
-        texto4 = view.findViewById(R.id.tv6);
-        textoSpin = view.findViewById(R.id.tvSpin);
+        texto3.setText(cadena2);
+        texto3.setTextColor(Color.BLACK);
 
-        // Recoge los argumentos
-        Bundle args = getArguments();
-        if (args != null) {
-            String mensaje1 = args.getString("chocolate");
-            String mensaje2 = args.getString("vainilla");
-            String mensaje3 = args.getString("fresa");
-            String mensaje4 = args.getString("eleccion");
+        texto4.setText(cadena3);
+        texto4.setTextColor(Color.RED);
 
-            a = Integer.parseInt(mensaje2);
-            b = Integer.parseInt(mensaje1);
-            c = Integer.parseInt(mensaje3);
-
-            String cadena1 = vainilla(a);
-            String cadena2 = chocolate(b);
-            String cadena3 = fresa(c);
-            String cadena4 = eleccion(mensaje4);
-
-            texto2.setText(cadena1);
-            texto2.setTextColor(Color.YELLOW);
-
-            texto3.setText(cadena2);
-            texto3.setTextColor(Color.BLACK);
-
-            texto4.setText(cadena3);
-            texto4.setTextColor(Color.RED);
-
-            textoSpin.setText(cadena4);
-            texto.setText("De chocolate han pedido: " + mensaje1 + " de vainilla han elegido: " + mensaje2 + " y de fresa: " + mensaje3 + " Y has elegido " + mensaje4);
-        }
+        textoSpin.setText(cadena4);
+        texto.setText("De chocolate han pedido: "+mensaje1+" de vainilla han elegido: "+mensaje2+" y de fresa: "+mensaje3+" Y has elegido "+mensaje4);
     }
     private String eleccion(String palabra){
         String retorno;
