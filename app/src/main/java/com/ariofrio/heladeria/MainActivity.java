@@ -78,12 +78,12 @@ private Button btn;
     }
 
     private void cambiarFragment() {
-        BlankFragment ponerFragment = BlankFragment.newInstance(cadena1, cadena2, cadena3, cadena4);
+        BlankFragment ponerFragment = BlankFragment.newInstance(cadena1, cadena2, cadena3, cadena4);//creo una instancia de un fragmento y con newInstance le paso los valores que tendra el fragmento
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.frame, ponerFragment)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .commit();
+        getSupportFragmentManager().beginTransaction()//
+                .replace(R.id.frame, ponerFragment)//reemplaza el frame actual(el del MAIN) con el nuevo  que estamos creando con el blank fragment
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)//mera transición visual para cambiar
+                .commit();//efectua las operaciones
     }
 
 }
