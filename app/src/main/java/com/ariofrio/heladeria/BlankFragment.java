@@ -111,7 +111,7 @@ public class BlankFragment extends Fragment {
         if (palabra.equalsIgnoreCase("cucurucho")) {
             retorno = "V";
             textoSpin.setTextColor(Color.parseColor("#804000"));//marron
-        } else if (palabra.equalsIgnoreCase("choco")) {
+        } else if (palabra.equalsIgnoreCase("Cucurucho de Chocolate")) {
             retorno = "V";
             textoSpin.setTextColor(Color.parseColor("#5c330a"));//marron oscuro
         } else {
